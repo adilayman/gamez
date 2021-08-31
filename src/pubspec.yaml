@@ -1,0 +1,28 @@
+name: src
+description: A 2D Flutter sports game.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  provider: ^5.0.0
+  path_provider: ^2.0.2
+  flutter_launcher_icons: ^0.7.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  image_path: "assets/png/app_logo.png"
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+

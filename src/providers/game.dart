@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:src/models/game/game_loop.dart';
-import 'package:src/models/game_entities/game_entity.dart';
-import 'package:src/models/game/game_gesture.dart';
+import '../models/game/game_loop.dart';
+import '../models/game/game_gesture.dart';
+import '../models/game_entities/game_entity.dart';
 
 /// Abstract representation of a game.
 abstract class Game extends ChangeNotifier implements GameGesture {

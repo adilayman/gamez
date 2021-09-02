@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'package:src/models/game_entities/game_entity.dart';
-import 'package:src/resources/vector.dart';
+import '../../resources/vector.dart';
+import '../game_entities/game_entity.dart';
 
 /// Circular sprite presentation.
 abstract class CircularSprite extends GameEntity {

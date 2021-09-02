@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:src/providers/game.dart';
+import '../providers/game.dart';
 
 // ignore: must_be_immutable
 abstract class GameScreen extends StatelessWidget {

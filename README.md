@@ -1,8 +1,8 @@
 # [Dart] Flutter Game Engine
 
-A small Flutter game engine.
-
 _By Ayman Adil (Last source code update: 07/08/2021)_
+
+A small Flutter game engine.
 
 # Utilisation
 
@@ -72,7 +72,7 @@ You can also find other resources in the `resources` folder:
 
 You can find [here](https://github.com/adilayman/pawns_game) a Flutter game using this engine.
 
-# Future possible improvements
+# Possible future improvements
 
 This game engine was created during the development of [Pawns Game](https://github.com/adilayman/pawns_game). Thus, the majority of the features of this engine are designed for the development of this game.
 

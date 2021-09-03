@@ -28,7 +28,7 @@ class MyGameProvider extends Game {
 }
 ```
 
-Then we can create the character; `MyCharacter`:
+Then you can create a new character `MyCharacter`:
 
 ```dart
 class MyCharacter extends GameEntity {
@@ -62,7 +62,7 @@ You can also add a widget to the game screen by calling `MyGame::addChild(MyWidg
 
 ## Other resources
 
-You can also find other resources in the `resources` folder:
+You can also find other resources:
 
 - `Sprite`: Image loader and renderer.
 - `FileManager`: Synchronous file Manager.
@@ -83,3 +83,7 @@ For "completion", some planned features:
 - Audio support.
 
 All contributions are warmly welcomed.
+
+# License
+
+Licensed under the [MIT License](LICENSE).

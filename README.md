@@ -1,4 +1,4 @@
-# [Dart] Flutter Game Engine
+# GamEZ
 
 _By Ayman Adil (Last source code update: 07/08/2021)_
 
@@ -8,14 +8,13 @@ A small Flutter game engine.
 
 ## Initialisation
 
-Firstly, you need to include in the `pubspec.yaml` of your application this:
+Inside `pubspec.yaml` add the package as follows:
 
 ```yaml
-environment:
-  sdk: ">=2.2.2 <3.0.0"
+...
 dependencies:
-  provider: ^5.0.0
-  path_provider: ^2.0.2
+  gamez: ^0.0.1
+...
 ```
 
 ## Create the game model
@@ -62,7 +61,7 @@ You can also add a widget to the game screen by calling `MyGame::addChild(MyWidg
 
 ## Other resources
 
-You can also find other resources:
+Some useful resources are provided:
 
 - `Sprite`: Image loader and renderer.
 - `FileManager`: Synchronous file Manager.
@@ -74,8 +73,6 @@ You can find [here](https://github.com/adilayman/pawns_game) a Flutter game usin
 
 # Possible future improvements
 
-This game engine was created during the development of [Pawns Game](https://github.com/adilayman/pawns_game). Thus, the majority of the features of this engine are designed for the development of this game.
-
 For "completion", some planned features:
 
 - Detection of all gestures.
@@ -84,6 +81,3 @@ For "completion", some planned features:
 
 All contributions are warmly welcomed.
 
-# License
-
-Licensed under the [MIT License](LICENSE).

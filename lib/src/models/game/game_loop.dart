@@ -1,16 +1,16 @@
 import 'dart:async';
 
 class GameLoop {
-  Timer _timer;
+  late Timer _timer;
   double fps;
 
   bool _running = false;
-  Function _update;
+  final Function _update;
 
   bool _waiting = false;
   double _waitTime = 0;
   double _currentWaitTime = 0;
-  Function _afterWait;
+  Function? _afterWait;
 
   /// Creates a  new game loop.
   ///
@@ -35,7 +35,7 @@ class GameLoop {
     _waiting = false;
     _waitTime = 0;
     _currentWaitTime = 0;
-    _afterWait = null;
+    _afterWait = () {};
     _running = true;
   }
 
@@ -44,7 +44,7 @@ class GameLoop {
     _currentWaitTime += seconds;
     if (_currentWaitTime >= _waitTime) {
       _currentWaitTime = 0;
-      if (_afterWait != null) _afterWait();
+      _afterWait!();
       _resetWaiting();
     }
   }
@@ -62,9 +62,9 @@ class GameLoop {
   ///
   /// It is also possible to perform an [afterWait] function
   /// when the waiting ends
-  void wait(double seconds, {Function afterWait}) {
+  void wait(double seconds, {Function? afterWait}) {
     _waiting = true;
     _waitTime = seconds;
-    _afterWait = afterWait;
+    _afterWait = afterWait!;
   }
 }

@@ -7,16 +7,16 @@ import '../../resources/vector.dart';
 import '../game_entities/circular_sprite.dart';
 
 class CircularProgressBar extends CircularSprite {
-  double _max;
+  final double _max;
   double current = 0;
 
   Color initialColor = Colors.green;
   Color progressColor = Colors.red;
 
   CircularProgressBar(Vector position, double radius, this._max,
-      {Sprite sprite})
+      {Sprite? sprite})
       : super(position, radius) {
-    super.sprite = sprite;
+    super.sprite = sprite!;
   }
 
   /// Renders the base circle.

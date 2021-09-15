@@ -7,12 +7,12 @@ import '../providers/game.dart';
 // ignore: must_be_immutable
 abstract class GameScreen extends StatelessWidget {
   Game game;
-  List<Widget> _children = [];
+  List<Widget> children = [];
 
-  GameScreen({@required this.game});
+  GameScreen({Key? key, required this.game}) : super(key: key);
 
   /// Adds a new child to the game tree.
-  void addChild(Widget child) => _children.add(child);
+  void addChild(Widget child) => children.add(child);
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +23,21 @@ abstract class GameScreen extends StatelessWidget {
         builder: (context, game, _) {
           return Scaffold(
             body: GestureDetector(
+              onDoubleTapDown: (details) => game.onDoubleTapDown(details.globalPosition),
               onLongPressMoveUpdate: (details) =>
                   game.onLongPressMoveUpdate(details.globalPosition),
               onLongPressStart: (details) =>
                   game.onLongPressStart(details.globalPosition),
               onLongPressEnd: (details) =>
                   game.onLongPressEnd(details.globalPosition),
+              onTapDown: (details) => game.onTapDown(details.globalPosition),
               child: Stack(
                 children: [
                   CustomPaint(
                     size: game.size,
                     painter: _GamePainter(game.render),
                   ),
-                  ..._children,
+                  ...children,
                 ],
               ),
             ),
@@ -47,13 +49,13 @@ abstract class GameScreen extends StatelessWidget {
 }
 
 class _GamePainter extends CustomPainter {
-  Function(Canvas canvas, Size size) _render;
+  final Function(Canvas canvas, Size size) _render;
 
   _GamePainter(this._render);
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (_render != null) _render(canvas, size);
+    _render(canvas, size);
   }
 
   @override

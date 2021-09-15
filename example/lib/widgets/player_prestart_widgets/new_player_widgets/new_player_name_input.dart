@@ -18,7 +18,10 @@ class NewPlayerNameInput extends StatelessWidget {
         ),
         onSubmitted: (value) {
           onSubmitted(value);
-          SystemChrome.setEnabledSystemUIOverlays([]); // go back to full screen
+          SystemChrome.setEnabledSystemUIMode(
+            SystemUiMode.manual,
+            overlays: [],
+          ); // go back to full screen
         },
         // do the same procedure as in [onSumbitted] to save the input without
         // the need to submit it.

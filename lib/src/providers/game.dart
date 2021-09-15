@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:gamez/gamez.dart';
 
 import '../models/game/game_loop.dart';
 import '../models/game/game_gesture.dart';
 import '../models/game_entities/game_entity.dart';
 
 /// Abstract representation of a game.
-abstract class Game extends ChangeNotifier implements GameGesture {
+class Game extends ChangeNotifier implements GameGesture {
   Size _size = Size.zero;
 
-  GameLoop _gameLoop;
-  List<GameEntity> _entities = [];
+  late GameLoop _gameLoop;
+  List<RenderElement> entities = [];
 
-  BuildContext _context;
+  late BuildContext _context;
 
   bool gameOver = false;
 
@@ -25,41 +26,76 @@ abstract class Game extends ChangeNotifier implements GameGesture {
 
   /// Init the game given the [context].
   void init(BuildContext context) {
-    this._context = context;
-    this._size = MediaQuery.of(context).size;
+    _context = context;
+    _size = MediaQuery.of(context).size;
     _isInit = true;
   }
 
   /// Updates the game entities at each frame.
   void update(double dt) {
-    for (GameEntity entity in entities) entity.update(dt);
+    for (RenderElement entity in entities) {
+      entity.update(dt);
+    }
     notifyListeners(); // notify to update the rendering
   }
 
   /// Renders the game.
   void render(Canvas canvas, Size size) {
-    for (GameEntity entity in entities) entity.render(canvas);
+    for (RenderElement entity in entities) {
+      entity.render(canvas);
+    }
   }
 
   /// Adds a new entity.
-  void addEntity(GameEntity entity) => _entities.add(entity);
+  void addEntity(GameEntity entity) => entities.add(entity);
 
   /// Resets the game state.
   void reset() {}
 
+  @override
   void onLongPressMoveUpdate(Offset position) {
-    for (GameEntity entity in entities) entity.onLongPressMoveUpdate(position);
+    for (RenderElement entity in entities) {
+      if (entity is GameEntity) {
+        entity.onLongPressMoveUpdate(position);
+      }
+    }
   }
 
+  @override
   void onLongPressStart(Offset position) {
-    for (GameEntity entity in entities) entity.onLongPressStart(position);
+    for (RenderElement entity in entities) {
+      if (entity is GameEntity) {
+        entity.onLongPressStart(position);
+      }
+    }
   }
 
+  @override
   void onLongPressEnd(Offset position) {
-    for (GameEntity entity in entities) entity.onLongPressEnd(position);
+    for (RenderElement entity in entities) {
+      if (entity is GameEntity) {
+        entity.onLongPressEnd(position);
+      }
+    }
   }
 
-  List<GameEntity> get entities => _entities;
+  @override
+  void onDoubleTapDown(Offset position) {
+    for (RenderElement entity in entities) {
+      if (entity is GameEntity) {
+        entity.onDoubleTapDown(position);
+      }
+    }
+  }
+
+  @override
+  void onTapDown(Offset position) {
+    for (RenderElement entity in entities) {
+      if (entity is GameEntity) {
+        entity.onTapDown(position);
+      }
+    }
+  }
 
   GameLoop get gameLoop => _gameLoop;
 

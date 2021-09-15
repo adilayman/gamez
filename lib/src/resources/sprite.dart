@@ -7,8 +7,8 @@ import 'package:flutter/services.dart';
 
 /// Sprite presentation.
 class Sprite {
-  String _pathname;
-  ui.Image _image;
+  late final String _pathname;
+  late ui.Image _image;
 
   Sprite(this._pathname);
 
@@ -17,7 +17,6 @@ class Sprite {
 
   /// Renders the image in the given [Canvas].
   void render(Canvas canvas, Offset lt, Size size) {
-    if (image == null) return;
     canvas.drawImageRect(
       _image,
       Rect.fromLTWH(0, 0, _image.width.toDouble(), _image.height.toDouble()),

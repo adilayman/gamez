@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 
 /// Synchronous file Manager.
 class FileManager {
-  File _file;
+  late File _file;
 
   FileManager(String filename) {
     _file = File(filename);

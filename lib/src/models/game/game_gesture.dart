@@ -1,13 +1,12 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 /// Game gesture interface.
 abstract class GameGesture {
-  /// OnLongPressMoveUpdate gesture.
+  void onDoubleTapDown(Offset position);
   void onLongPressMoveUpdate(Offset position);
-
-  /// onLongPressStart gesture.
   void onLongPressStart(Offset position);
-
-  /// onLongPressEnd gesture.
   void onLongPressEnd(Offset position);
+  void onTapDown(Offset position);
 }

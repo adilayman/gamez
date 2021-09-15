@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:gamez/gamez.dart';
-
 
 class Football extends CircularSprite {
   Football(Vector position, Sprite sprite) : super(position, 15) {
@@ -17,15 +14,6 @@ class Football extends CircularSprite {
 
     currentSpeed -= dt * speed;
   }
-
-  @override
-  void onLongPressEnd(Offset position) {}
-
-  @override
-  void onLongPressMoveUpdate(Offset position) {}
-
-  @override
-  void onLongPressStart(Offset position) {}
 
   @override
   void reset() => velocity = Vector(0, 0);

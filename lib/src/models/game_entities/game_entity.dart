@@ -18,4 +18,19 @@ abstract class GameEntity extends RenderElement implements GameGesture {
     _speed = newSpeed;
     currentSpeed = newSpeed;
   }
+
+  @override
+  void onDoubleTapDown(Offset position) {}
+
+  @override
+  void onLongPressEnd(Offset position) {}
+
+  @override
+  void onLongPressMoveUpdate(Offset position) {}
+
+  @override
+  void onLongPressStart(Offset position) {}
+
+  @override
+  void onTapDown(Offset position) {}
 }

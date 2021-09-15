@@ -13,7 +13,7 @@ Inside `pubspec.yaml` add the package as follows:
 ```yaml
 ...
 dependencies:
-  gamez: ^0.0.1
+  gamez: ^0.0.2
 ...
 ```
 

@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:gamez/gamez.dart';
 import 'package:pawns_game/models/application_models/player.dart';
 
-
 class SaveFileManager {
   FileManager _fileManager;
   String _filename;

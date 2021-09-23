@@ -1,21 +1,10 @@
 # GamEZ
 
-_By Ayman Adil (Last source code update: 07/08/2021)_
+_By Ayman Adil (Last source code update: 2021-09-23)_
 
 A small Flutter game engine.
 
-# Utilisation
-
-## Initialisation
-
-Inside `pubspec.yaml` add the package as follows:
-
-```yaml
-...
-dependencies:
-  gamez: ^0.0.2
-...
-```
+# Utilization
 
 ## Create the game model
 
@@ -80,4 +69,3 @@ For "completion", some planned features:
 - Audio support.
 
 All contributions are warmly welcomed.
-

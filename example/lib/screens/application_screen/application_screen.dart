@@ -17,7 +17,7 @@ class ApplicationScreen extends StatelessWidget {
       DeviceOrientation.landscapeRight,
     ]);
 
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    SystemChrome.setEnabledSystemUIOverlays([]);
 
     return ChangeNotifierProvider(
       create: (_) => Application(),

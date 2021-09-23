@@ -23,7 +23,8 @@ abstract class GameScreen extends StatelessWidget {
         builder: (context, game, _) {
           return Scaffold(
             body: GestureDetector(
-              onDoubleTapDown: (details) => game.onDoubleTapDown(details.globalPosition),
+              onDoubleTapDown: (details) =>
+                  game.onDoubleTapDown(details.globalPosition),
               onLongPressMoveUpdate: (details) =>
                   game.onLongPressMoveUpdate(details.globalPosition),
               onLongPressStart: (details) =>

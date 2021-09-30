@@ -7,12 +7,10 @@ class Football extends CircularSprite {
 
   @override
   void update(double dt) {
-    if (currentSpeed <= 0) velocity = Vector(0, 0);
+    var friction = 0.03;
+    velocity += -velocity * friction;
 
-    position.x += dt * velocity.x;
-    position.y += dt * velocity.y;
-
-    currentSpeed -= dt * speed;
+    position += velocity * dt;
   }
 
   @override

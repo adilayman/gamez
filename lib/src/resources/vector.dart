@@ -18,8 +18,17 @@ class Vector {
   /// Multiplication operator.
   Vector operator *(double scale) => Vector(x * scale, y * scale);
 
+  /// Addition operator.
+  Vector operator +(Vector other) => Vector(x + other.x, y + other.y);
+
+  /// Opposite operator.
+  Vector operator -() => Vector(-x, -y);
+
   /// Returns the dot product of two vectors.
   double dot(Vector v2) => x * v2.x + y * v2.y;
+
+  /// Returns the length of the vector.
+  double length() => sqrt(x * x + y * y);
 
   /// Returns the euclidean distance between two vectors.
   double distance(Vector v2) =>

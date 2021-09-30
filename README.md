@@ -1,12 +1,10 @@
 # GamEZ
 
-_By Ayman Adil (Last source code update: 2021-09-23)_
+A small 2D game engine to easily create games in Flutter by providing different methods for rendering, gesture detection, etc.
 
-A small Flutter game engine.
+## Utilization
 
-# Utilization
-
-## Create the game model
+### Create the game model
 
 The game model is responsible for the logical part of the game, such as adding/removing entities and managing gestures.
 
@@ -36,7 +34,7 @@ class MyElement extends RenderElement {
 }
 ```
 
-## Create the game screen
+### Create the game screen
 
 In order to render and detect gestures you have to create a game screen:
 
@@ -56,11 +54,11 @@ Some useful resources are provided:
 - `FileManager`: Synchronous file Manager.
 - `Vector`: 2D vector with various operations.
 
-# Example
+## Example
 
 You can find [here](https://github.com/adilayman/pawns_game) a Flutter game using this engine.
 
-# Possible future improvements
+## Possible future improvements
 
 For "completion", some planned features:
 

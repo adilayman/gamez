@@ -5,11 +5,11 @@ import 'package:provider/provider.dart';
 import '../providers/game.dart';
 
 // ignore: must_be_immutable
-abstract class GameScreen extends StatelessWidget {
+abstract class GameWidget extends StatelessWidget {
   Game game;
   List<Widget> children = [];
 
-  GameScreen({Key? key, required this.game}) : super(key: key);
+  GameWidget({Key? key, required this.game}) : super(key: key);
 
   /// Adds a new child to the game tree.
   void addChild(Widget child) => children.add(child);

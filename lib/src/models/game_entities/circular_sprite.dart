@@ -14,8 +14,14 @@ abstract class CircularSprite extends GameEntity {
       : super(position, Size(radius * 2, radius * 2));
 
   @override
-  void render(Canvas canvas) =>
-      sprite.render(canvas, Offset(x - radius, y - radius), size);
+  void render(Canvas canvas) {
+    if (sprite != null) {
+      sprite!.render(canvas, Offset(x - radius, y - radius), size);
+    } else {
+      final paint = Paint()..color = color!;
+      canvas.drawCircle(position.toOffset, radius, paint);
+    }
+  }
 
   @override
   bool contains(Offset position) {

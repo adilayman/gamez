@@ -23,4 +23,4 @@ export 'src/resources/sprite.dart' show Sprite;
 
 export 'src/resources/vector.dart' show Vector;
 
-export 'src/screens/game_screen.dart' show GameScreen;
+export 'src/widgets/game_widget.dart' show GameWidget;

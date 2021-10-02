@@ -1,0 +1,52 @@
+name: pawns_game
+description: A 2D Flutter sports game.
+
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.3
+  provider: ^6.0.0
+  path_provider: ^2.0.4
+  flutter_launcher_icons: ^0.9.2
+
+  gamez:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  image_path: "assets/png/app_logo.png"
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/png/
+    - assets/png/pawns/
+    - assets/png/football_mode/
+    - assets/png/avatars/
+
+  fonts:
+    - family: Spaceboards
+      fonts:
+        - asset: assets/fonts/space_boards.ttf
+    - family: GearUp
+      fonts:
+        - asset: assets/fonts/gear_up.ttf
+    - family: Blaak
+      fonts:
+        - asset: assets/fonts/blaak.ttf
+    - family: ProximasNova
+      fonts:
+        - asset: assets/fonts/proxima_nova.ttf

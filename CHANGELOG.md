@@ -1,12 +1,21 @@
-## [0.0.1] - 2021-09-11
+# 0.0.1
 
 - Publish the first version.
 
-## [0.0.2] - 2021-09-15
+# 0.0.2
 
 - Support null safety.
 - More basic gestures.
 
-## [0.0.2+1] - 2021-09-23
+# 0.0.2+1
 
 - Improve pub score.
+
+# 0.0.2+2
+
+- minor changes
+
+# 0.0.2+3
+
+- minor changes
+- provide a simple example

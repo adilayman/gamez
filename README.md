@@ -9,7 +9,7 @@ A small 2D game engine to easily create games in Flutter by providing different 
 The game model is responsible for the logical part of the game, such as adding/removing entities and managing gestures.
 
 ```dart
-class MyGameProvider extends Game {
+class MyGame extends Game {
   // ... Implement override methods ...
 }
 ```
@@ -23,7 +23,7 @@ class MyCharacter extends GameEntity {
 }
 ```
 
-To add it to the game you have to call `MyGameProvider::entities.add(MyCharacter)`
+To add it to the game you have to call `MyGame::entities.add(MyCharacter)`
 
 If you want to add an entity without gestures, you can extend it from `RenderElement`:
 
@@ -34,17 +34,17 @@ class MyElement extends RenderElement {
 }
 ```
 
-### Create the game screen
+### Create the game widget
 
-In order to render and detect gestures you have to create a game screen:
+In order to render and detect gestures you have to create a game widget:
 
 ```dart
-class MyGame extends GameScreen {
-  MyGame() : super(game: MyGameProvider());
+class MyGameWidget extends GameWidget {
+  MyGameWidget() : super(game: MyGame());
 }
 ```
 
-You can also add a widget to the game screen by calling `MyGame::addChild(MyWidget)`
+You can also add another widget to the game widget by calling `MyGame::addChild(MyWidget)`
 
 ## Other resources
 

@@ -9,7 +9,9 @@ import '../../resources/vector.dart';
 abstract class RenderElement {
   Vector position;
   Size size;
-  late Sprite sprite;
+
+  Sprite? sprite;
+  Color? color;
 
   RenderElement(this.position, this.size);
 

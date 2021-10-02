@@ -6,7 +6,7 @@ import '../models/game/game_gesture.dart';
 import '../models/game_entities/game_entity.dart';
 
 /// Abstract representation of a game.
-class Game extends ChangeNotifier implements GameGesture {
+abstract class Game extends ChangeNotifier implements GameGesture {
   Size _size = Size.zero;
 
   late GameLoop _gameLoop;
@@ -55,7 +55,7 @@ class Game extends ChangeNotifier implements GameGesture {
   @override
   void onLongPressMoveUpdate(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
+      if (entity is GameEntity && entity.contains(position)) {
         entity.onLongPressMoveUpdate(position);
       }
     }
@@ -64,7 +64,7 @@ class Game extends ChangeNotifier implements GameGesture {
   @override
   void onLongPressStart(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
+      if (entity is GameEntity && entity.contains(position)) {
         entity.onLongPressStart(position);
       }
     }
@@ -73,7 +73,7 @@ class Game extends ChangeNotifier implements GameGesture {
   @override
   void onLongPressEnd(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
+      if (entity is GameEntity && entity.contains(position)) {
         entity.onLongPressEnd(position);
       }
     }
@@ -82,7 +82,7 @@ class Game extends ChangeNotifier implements GameGesture {
   @override
   void onDoubleTapDown(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
+      if (entity is GameEntity && entity.contains(position)) {
         entity.onDoubleTapDown(position);
       }
     }
@@ -91,7 +91,7 @@ class Game extends ChangeNotifier implements GameGesture {
   @override
   void onTapDown(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
+      if (entity is GameEntity && entity.contains(position)) {
         entity.onTapDown(position);
       }
     }

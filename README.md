@@ -14,7 +14,7 @@ class MyGame extends Game {
 }
 ```
 
-Then you can create a new character `MyCharacter`:
+Then you can create a new character `MyCharacter`
 
 ```dart
 class MyCharacter extends GameEntity {
@@ -25,7 +25,7 @@ class MyCharacter extends GameEntity {
 
 To add it to the game you have to call `MyGame::entities.add(MyCharacter)`
 
-If you want to add an entity without gestures, you can extend it from `RenderElement`:
+If you want to add an entity without gestures, you can extend it from `RenderElement`
 
 ```dart
 class MyElement extends RenderElement {
@@ -56,7 +56,7 @@ Some useful resources are provided:
 
 ## Example
 
-You can find [here](https://github.com/adilayman/pawns_game) a Flutter game using this engine.
+- Pawns Game: https://github.com/adilayman/pawns_game
 
 ## Possible future improvements
 

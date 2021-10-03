@@ -1,6 +1,6 @@
 name: gamez
 description: A small 2D game engine to easily create games in Flutter by providing different methods for rendering, gesture detection, etc.
-version: 0.0.2+3
+version: 0.0.2+4
 homepage: https://github.com/adilayman/gamez
 
 environment:

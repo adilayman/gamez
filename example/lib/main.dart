@@ -36,13 +36,16 @@ class MyCharacter extends CircularSprite {
 }
 
 class MyGame extends Game {
+  MyCharacter? myCharacter;
+
   @override
   void init(BuildContext context) {
     super.init(context);
 
     // create a new entity of type MyCharacter and add it initialy at the center
     // of the screen.
-    addEntity(MyCharacter(Vector(size.width / 2, size.height / 2)));
+    myCharacter = MyCharacter(Vector(size.width / 2, size.height / 2));
+    addEntity(myCharacter!);
   }
 
   @override
@@ -51,8 +54,16 @@ class MyGame extends Game {
     final paint = Paint()..color = Color.fromRGBO(100, 91, 125, 1);
     canvas.drawRect(Offset.zero & size, paint);
 
-    // initial rendering method.
+    // render all children.
     super.render(canvas, size);
+  }
+
+  void _bounceMyCharacter(MyCharacter? mc) {
+    if (mc == null) return;
+
+    if (mc.x + mc.radius > size.width || mc.x - mc.radius < 0) {
+      mc.velocity.x *= -1;
+    }
   }
 
   @override
@@ -60,10 +71,7 @@ class MyGame extends Game {
     super.update(dt);
 
     /// Bouncing
-    for (CircularSprite entity in entities) {
-      if (entity.x + entity.radius > size.width || entity.x - entity.radius < 0)
-        entity.velocity.x *= -1;
-    }
+    _bounceMyCharacter(myCharacter);
   }
 }
 

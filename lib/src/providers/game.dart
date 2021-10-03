@@ -55,7 +55,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
   @override
   void onLongPressMoveUpdate(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity && entity.contains(position)) {
+      if (entity is GameEntity) {
         entity.onLongPressMoveUpdate(position);
       }
     }
@@ -64,7 +64,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
   @override
   void onLongPressStart(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity && entity.contains(position)) {
+      if (entity is GameEntity) {
         entity.onLongPressStart(position);
       }
     }
@@ -73,7 +73,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
   @override
   void onLongPressEnd(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity && entity.contains(position)) {
+      if (entity is GameEntity) {
         entity.onLongPressEnd(position);
       }
     }
@@ -82,7 +82,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
   @override
   void onDoubleTapDown(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity && entity.contains(position)) {
+      if (entity is GameEntity) {
         entity.onDoubleTapDown(position);
       }
     }
@@ -91,7 +91,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
   @override
   void onTapDown(Offset position) {
     for (RenderElement entity in entities) {
-      if (entity is GameEntity && entity.contains(position)) {
+      if (entity is GameEntity) {
         entity.onTapDown(position);
       }
     }

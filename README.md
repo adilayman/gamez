@@ -23,16 +23,32 @@ class MyCharacter extends GameEntity {
 }
 ```
 
-To add it to the game you have to call `MyGame::entities.add(MyCharacter)`
+* To add it to the game you have to call `MyGame::entities.add(MyCharacter)`
 
-If you want to add an entity without gestures, you can extend it from `RenderElement`
+By default, the game entity comes without a gesture detector. If you want to add a gesture, you have to implement the corresponding interface.
 
 ```dart
-class MyElement extends RenderElement {
-  MyElement(Vector position, Size size) : super(position, size);
-  // ... Implement override methods ...
+class MyCharacter extends GameEntity implements TapDetector {
+  MyCharacter(Vector position, Size size) : super(position, size);
+
+  @override
+  void onTapDown(Offset position) {
+    // Do something...
+  }
+
+  @override
+  void onDoubleTapDown(Offset position) {
+    // Do something...
+  }
+
+  // ... Implement other override methods ...
 }
 ```
+
+- The available gestures are:
+  - LongPressDetector
+  - TapDetector
+  - GesturesDetector: for detecting all possible gestures.
 
 ### Create the game widget
 

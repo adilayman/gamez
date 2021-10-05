@@ -1,27 +1,38 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
+import '../../resources/sprite.dart';
 import '../../resources/vector.dart';
-import '../game/game_gesture.dart';
-import '../render_elements/render_element.dart';
 
-/// Abstract representation of a game entity.
-abstract class GameEntity extends RenderElement implements GameGesture {
+/// Abstract representation of a render element.
+abstract class GameEntity {
   Vector velocity = Vector(0, 0);
+  late Vector position;
+  late Size size;
 
-  GameEntity(Vector position, Size size) : super(position, size);
+  Sprite? sprite;
+  Color? color;
 
-  @override
-  void onDoubleTapDown(Offset position) {}
+  GameEntity(this.position, this.size);
 
-  @override
-  void onLongPressEnd(Offset position) {}
+  /// Renders the game entity.
+  void render(Canvas canvas);
 
-  @override
-  void onLongPressMoveUpdate(Offset position) {}
+  /// Updates the game entity at each frame.
+  void update(double dt) {}
 
-  @override
-  void onLongPressStart(Offset position) {}
+  /// Resets the state.
+  void reset() {}
 
-  @override
-  void onTapDown(Offset position) {}
+  /// Checks if [position] is in the render element.
+  bool contains(Offset position);
+
+  set x(double value) => position.x = value;
+
+  set y(double value) => position.y = value;
+
+  double get x => position.x;
+
+  double get y => position.y;
 }

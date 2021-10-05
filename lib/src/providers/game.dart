@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gamez/gamez.dart';
+import 'package:gamez/src/models/gesture_detectors/gestures_detector.dart';
+import 'package:gamez/src/models/gesture_detectors/long_press_detector.dart';
+import 'package:gamez/src/models/gesture_detectors/tap_detector.dart';
 
 import '../models/game/game_loop.dart';
-import '../models/game/game_gesture.dart';
 import '../models/game_entities/game_entity.dart';
 
 /// Abstract representation of a game.
-abstract class Game extends ChangeNotifier implements GameGesture {
+abstract class Game extends ChangeNotifier implements GesturesDetector {
   Size _size = Size.zero;
 
   late GameLoop _gameLoop;
-  List<RenderElement> entities = [];
+  List<GameEntity> entities = [];
 
   late BuildContext _context;
 
@@ -33,7 +35,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
 
   /// Updates the game entities at each frame.
   void update(double dt) {
-    for (RenderElement entity in entities) {
+    for (GameEntity entity in entities) {
       entity.update(dt);
     }
     notifyListeners(); // notify to update the rendering
@@ -41,7 +43,7 @@ abstract class Game extends ChangeNotifier implements GameGesture {
 
   /// Renders the game.
   void render(Canvas canvas, Size size) {
-    for (RenderElement entity in entities) {
+    for (GameEntity entity in entities) {
       entity.render(canvas);
     }
   }
@@ -54,45 +56,50 @@ abstract class Game extends ChangeNotifier implements GameGesture {
 
   @override
   void onLongPressMoveUpdate(Offset position) {
-    for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
-        entity.onLongPressMoveUpdate(position);
+    for (var entity in entities) {
+      if (entity is LongPressDetector) {
+        var gestureEntity = entity as LongPressDetector;
+        gestureEntity.onLongPressMoveUpdate(position);
       }
     }
   }
 
   @override
   void onLongPressStart(Offset position) {
-    for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
-        entity.onLongPressStart(position);
+    for (GameEntity entity in entities) {
+      if (entity is LongPressDetector) {
+        var gestureEntity = entity as LongPressDetector;
+        gestureEntity.onLongPressStart(position);
       }
     }
   }
 
   @override
   void onLongPressEnd(Offset position) {
-    for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
-        entity.onLongPressEnd(position);
+    for (GameEntity entity in entities) {
+      if (entity is LongPressDetector) {
+        var gestureEntity = entity as LongPressDetector;
+        gestureEntity.onLongPressEnd(position);
       }
     }
   }
 
   @override
   void onDoubleTapDown(Offset position) {
-    for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
-        entity.onDoubleTapDown(position);
+    for (GameEntity entity in entities) {
+      if (entity is TapDetector) {
+        var gestureEntity = entity as TapDetector;
+        gestureEntity.onDoubleTapDown(position);
       }
     }
   }
 
   @override
   void onTapDown(Offset position) {
-    for (RenderElement entity in entities) {
-      if (entity is GameEntity) {
-        entity.onTapDown(position);
+    for (GameEntity entity in entities) {
+      if (entity is TapDetector) {
+        var gestureEntity = entity as TapDetector;
+        gestureEntity.onTapDown(position);
       }
     }
   }

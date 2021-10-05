@@ -15,7 +15,7 @@ void main() => runApp(
       ),
     );
 
-class MyCharacter extends CircularSprite {
+class MyCharacter extends CircularEntity implements TapDetector {
   final color1 = Colors.red;
   final color2 = Colors.green;
 
@@ -25,14 +25,18 @@ class MyCharacter extends CircularSprite {
   }
 
   @override
+  void update(double dt) {
+    position.x += velocity.x * dt;
+  }
+
+  @override
   void onTapDown(Offset position) {
+    if (!contains(position)) return;
     color = color == color1 ? color2 : color1;
   }
 
   @override
-  void update(double dt) {
-    position.x += velocity.x * dt;
-  }
+  void onDoubleTapDown(Offset position) {}
 }
 
 class MyGame extends Game {

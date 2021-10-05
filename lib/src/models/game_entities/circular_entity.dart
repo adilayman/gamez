@@ -1,16 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:gamez/src/models/game_entities/game_entity.dart';
 
 import '../../resources/vector.dart';
-import '../game_entities/game_entity.dart';
 
 /// Circular sprite presentation.
-abstract class CircularSprite extends GameEntity {
+abstract class CircularEntity extends GameEntity {
   double radius;
 
   /// Creates a new circle entity.
-  CircularSprite(Vector position, this.radius)
+  CircularEntity(Vector position, this.radius)
       : super(position, Size(radius * 2, radius * 2));
 
   @override

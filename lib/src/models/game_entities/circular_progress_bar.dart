@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../../resources/sprite.dart';
 import '../../resources/vector.dart';
-import '../game_entities/circular_sprite.dart';
+import 'circular_entity.dart';
 
-class CircularProgressBar extends CircularSprite {
+class CircularProgressBar extends CircularEntity {
   final double _max;
   double current = 0;
 
@@ -52,13 +52,4 @@ class CircularProgressBar extends CircularSprite {
 
   @override
   void reset() => current = 0;
-
-  @override
-  void onLongPressEnd(Offset position) {}
-
-  @override
-  void onLongPressMoveUpdate(Offset position) {}
-
-  @override
-  void onLongPressStart(Offset position) {}
 }

@@ -2,22 +2,20 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../resources/sprite.dart';
+import '../../resources/image_renderer.dart';
 import '../../resources/vector.dart';
 import 'circular_entity.dart';
 
 class CircularProgressBar extends CircularEntity {
-  final double _max;
+  double max;
   double current = 0;
 
   Color initialColor = Colors.green;
   Color progressColor = Colors.red;
 
-  CircularProgressBar(Vector position, double radius, this._max,
-      {Sprite? sprite})
-      : super(position, radius) {
-    super.sprite = sprite!;
-  }
+  CircularProgressBar(Vector position, double radius, this.max,
+      {ImageRenderer? image})
+      : super(position, radius, image: image);
 
   /// Renders the base circle.
   void _renderBaseCircle(Canvas canvas) {
@@ -38,7 +36,7 @@ class CircularProgressBar extends CircularEntity {
     Rect rect = Rect.fromLTWH(x - radius, y - radius, 2 * radius, 2 * radius);
 
     double startAngle = -pi / 2;
-    double currentAngle = 2 * current * pi / _max;
+    double currentAngle = 2 * current * pi / max;
 
     canvas.drawArc(rect, startAngle, currentAngle, false, paint);
   }
@@ -52,4 +50,7 @@ class CircularProgressBar extends CircularEntity {
 
   @override
   void reset() => current = 0;
+
+  @override
+  void update(double dt) {}
 }

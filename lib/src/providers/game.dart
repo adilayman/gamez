@@ -6,6 +6,7 @@ import 'package:gamez/src/models/gesture_detectors/tap_detector.dart';
 
 import '../models/game/game_loop.dart';
 import '../models/game_entities/game_entity.dart';
+import 'dart:ui';
 
 /// Abstract representation of a game.
 abstract class Game extends ChangeNotifier implements GesturesDetector {
@@ -24,12 +25,13 @@ abstract class Game extends ChangeNotifier implements GesturesDetector {
   Game() {
     _gameLoop = GameLoop(update);
     _gameLoop.start();
+    _size = MediaQueryData.fromWindow(window).size;
   }
 
   /// Init the game given the [context].
   void init(BuildContext context) {
     _context = context;
-    _size = MediaQuery.of(context).size;
+    //_size = MediaQuery.of(context).size;
     _isInit = true;
   }
 

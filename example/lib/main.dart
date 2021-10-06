@@ -37,19 +37,17 @@ class MyCharacter extends CircularEntity implements TapDetector {
 
   @override
   void onDoubleTapDown(Offset position) {}
+
+  @override
+  void reset() {}
 }
 
 class MyGame extends Game {
-  MyCharacter? myCharacter;
+  late MyCharacter myCharacter;
 
-  @override
-  void init(BuildContext context) {
-    super.init(context);
-
-    // create a new entity of type MyCharacter and add it initialy at the center
-    // of the screen.
+  MyGame() {
     myCharacter = MyCharacter(Vector(size.width / 2, size.height / 2));
-    addEntity(myCharacter!);
+    addEntity(myCharacter);
   }
 
   @override
@@ -62,20 +60,15 @@ class MyGame extends Game {
     super.render(canvas, size);
   }
 
-  void _bounceMyCharacter(MyCharacter? mc) {
-    if (mc == null) return;
-
-    if (mc.x + mc.radius > size.width || mc.x - mc.radius < 0) {
-      mc.velocity.x *= -1;
-    }
-  }
-
   @override
   void update(double dt) {
     super.update(dt);
 
     /// Bouncing
-    _bounceMyCharacter(myCharacter);
+    if (myCharacter.x + myCharacter.radius > size.width ||
+        myCharacter.x - myCharacter.radius < 0) {
+      myCharacter.velocity.x *= -1;
+    }
   }
 }
 

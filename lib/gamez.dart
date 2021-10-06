@@ -15,9 +15,7 @@ export 'src/models/game_entities/game_entity.dart' show GameEntity;
 
 export 'src/providers/game.dart' show Game;
 
-export 'src/resources/file_manager.dart' show FileManager;
-
-export 'src/resources/sprite.dart' show Sprite;
+export 'src/resources/image_renderer.dart' show ImageRenderer;
 
 export 'src/resources/vector.dart' show Vector;
 

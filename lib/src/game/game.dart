@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gamez/gamez.dart';
-import 'package:gamez/src/models/gesture_detectors/gestures_detector.dart';
-import 'package:gamez/src/models/gesture_detectors/long_press_detector.dart';
-import 'package:gamez/src/models/gesture_detectors/tap_detector.dart';
+import 'package:gamez/src/game_entities/game_entity.dart';
+import 'package:gamez/src/gestures/gestures.dart';
 
-import '../models/game/game_loop.dart';
-import '../models/game_entities/game_entity.dart';
+import 'game_loop.dart';
 import 'dart:ui';
 
 /// Abstract representation of a game.

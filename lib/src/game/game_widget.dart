@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../providers/game.dart';
+import 'game.dart';
 
 // ignore: must_be_immutable
 abstract class GameWidget extends StatelessWidget {

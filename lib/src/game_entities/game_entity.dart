@@ -1,9 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-
-import '../../resources/image_renderer.dart';
-import '../../resources/vector.dart';
+import 'package:gamez/src/utils/image_renderer.dart';
+import 'package:gamez/src/utils/vector.dart';
 
 /// Abstract representation of a render element.
 abstract class GameEntity {

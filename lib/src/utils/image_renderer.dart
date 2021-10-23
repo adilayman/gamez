@@ -5,12 +5,12 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Sprite presentation.
-class Sprite {
+/// Image renderer presentation.
+class ImageRenderer {
   late final String _pathname;
   late ui.Image _image;
 
-  Sprite(this._pathname);
+  ImageRenderer(this._pathname);
 
   /// Loads the image of the sprite.
   Future<void> load() async => _image = await _loadFutureImage();

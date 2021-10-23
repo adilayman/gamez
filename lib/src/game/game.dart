@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gamez/gamez.dart';
-import 'package:gamez/src/models/gesture_detectors/gestures_detector.dart';
-import 'package:gamez/src/models/gesture_detectors/long_press_detector.dart';
-import 'package:gamez/src/models/gesture_detectors/tap_detector.dart';
+import 'package:gamez/src/game_entities/game_entity.dart';
+import 'package:gamez/src/gestures/gestures.dart';
 
-import '../models/game/game_loop.dart';
-import '../models/game_entities/game_entity.dart';
+import 'game_loop.dart';
+import 'dart:ui';
 
 /// Abstract representation of a game.
 abstract class Game extends ChangeNotifier implements GesturesDetector {
@@ -14,23 +12,15 @@ abstract class Game extends ChangeNotifier implements GesturesDetector {
   late GameLoop _gameLoop;
   List<GameEntity> entities = [];
 
-  late BuildContext _context;
-
   bool gameOver = false;
 
-  bool _isInit = false;
+  late BuildContext context;
 
   /// Creates a new game.
   Game() {
     _gameLoop = GameLoop(update);
     _gameLoop.start();
-  }
-
-  /// Init the game given the [context].
-  void init(BuildContext context) {
-    _context = context;
-    _size = MediaQuery.of(context).size;
-    _isInit = true;
+    _size = MediaQueryData.fromWindow(window).size;
   }
 
   /// Updates the game entities at each frame.
@@ -107,8 +97,4 @@ abstract class Game extends ChangeNotifier implements GesturesDetector {
   GameLoop get gameLoop => _gameLoop;
 
   Size get size => _size;
-
-  BuildContext get context => _context;
-
-  bool get isInit => _isInit;
 }

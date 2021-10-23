@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../providers/game.dart';
+import 'game.dart';
 
 // ignore: must_be_immutable
 abstract class GameWidget extends StatelessWidget {
@@ -16,7 +16,7 @@ abstract class GameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    game.init(context);
+    game.context = context;
     return ChangeNotifierProvider(
       create: (context) => game,
       child: Consumer<Game>(

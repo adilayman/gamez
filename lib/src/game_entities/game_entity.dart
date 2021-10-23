@@ -1,9 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-
-import '../../resources/sprite.dart';
-import '../../resources/vector.dart';
+import 'package:gamez/src/utils/image_renderer.dart';
+import 'package:gamez/src/utils/vector.dart';
 
 /// Abstract representation of a render element.
 abstract class GameEntity {
@@ -11,19 +10,19 @@ abstract class GameEntity {
   late Vector position;
   late Size size;
 
-  Sprite? sprite;
+  ImageRenderer? image;
   Color? color;
 
-  GameEntity(this.position, this.size);
+  GameEntity(this.position, this.size, {this.image, this.color});
 
   /// Renders the game entity.
   void render(Canvas canvas);
 
   /// Updates the game entity at each frame.
-  void update(double dt) {}
+  void update(double dt);
 
   /// Resets the state.
-  void reset() {}
+  void reset();
 
   /// Checks if [position] is in the render element.
   bool contains(Offset position);

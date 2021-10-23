@@ -1,10 +1,20 @@
-# GamEZ
+[<img src="assets/logo.png" width="100" />](https://pub.dev/packages/gamez)
 
-A small 2D game engine to easily create games in Flutter by providing different methods for rendering, gesture detection, etc.
+<p align="left">
+A small game engine for 2D games in Flutter.
+</p>
 
-## Utilization
+<p align="left">
+  <a title="pub" href="https://pub.dev/packages/gamez" ><img src="https://img.shields.io/badge/pub-0.0.3-blue?style=plastic" />
+  <a title="license" href="https://github.com/adilayman/gamez/blob/main/LICENSE" ><img src="https://img.shields.io/github/license/adilayman/gamez?style=plastic" /></a>
+  </a>
+  <a title="pawns game" href="https://github.com/adilayman/pawns_game" ><img src="https://img.shields.io/badge/pawns%20game-example-purple?style=plastic" /></a>
+  </a>
+</p>
 
-### Create the game model
+### Usage
+
+#### Create the game model
 
 The game model is responsible for the logical part of the game, such as adding/removing entities and managing gestures.
 
@@ -14,7 +24,7 @@ class MyGame extends Game {
 }
 ```
 
-Then you can create a new character `MyCharacter`
+To create a new character to your game, you have to extends it from `GameEntity`
 
 ```dart
 class MyCharacter extends GameEntity {
@@ -23,9 +33,9 @@ class MyCharacter extends GameEntity {
 }
 ```
 
-* To add it to the game you have to call `MyGame::entities.add(MyCharacter)`
+To add it to your game, you have to call `MyGame::entities.add(MyCharacter)`
 
-By default, the game entity comes without a gesture detector. If you want to add a gesture, you have to implement the corresponding interface.
+By default, a game entity comes without a gesture detector. If you want to add a gesture, you have to implement the corresponding interface.
 
 ```dart
 class MyCharacter extends GameEntity implements TapDetector {
@@ -45,14 +55,15 @@ class MyCharacter extends GameEntity implements TapDetector {
 }
 ```
 
-- The available gestures are:
-  - LongPressDetector
-  - TapDetector
-  - GesturesDetector: for detecting all possible gestures.
+The available gestures are:
 
-### Create the game widget
+* LongPressDetector
+* TapDetector
+* GesturesDetector: for detecting all possible gestures.
 
-In order to render and detect gestures you have to create a game widget:
+#### Create the game widget
+
+A model without a widget is not enough to display your game. For that, you have to create a widget that extends from `GameWidget` and add your model to it. MAGIC!
 
 ```dart
 class MyGameWidget extends GameWidget {
@@ -60,26 +71,13 @@ class MyGameWidget extends GameWidget {
 }
 ```
 
-You can also add another widget to the game widget by calling `MyGame::addChild(MyWidget)`
+You can also add another widget to your game widget by calling `MyGame::addChild(MyWidget)`
 
-## Other resources
+### Possible future improvements
 
-Some useful resources are provided:
+For *completion*, some planned features:
 
-- `Sprite`: Image loader and renderer.
-- `FileManager`: Synchronous file Manager.
-- `Vector`: 2D vector with various operations.
-
-## Example
-
-- Pawns Game: https://github.com/adilayman/pawns_game
-
-## Possible future improvements
-
-For "completion", some planned features:
-
-- Detection of all gestures.
-- More basic components.
-- Audio support.
+* More basic components.
+* Audio support.
 
 All contributions are warmly welcomed.

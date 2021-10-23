@@ -16,7 +16,7 @@ abstract class GameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    game.init(context);
+    game.context = context;
     return ChangeNotifierProvider(
       create: (context) => game,
       child: Consumer<Game>(

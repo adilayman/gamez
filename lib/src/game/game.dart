@@ -12,24 +12,15 @@ abstract class Game extends ChangeNotifier implements GesturesDetector {
   late GameLoop _gameLoop;
   List<GameEntity> entities = [];
 
-  late BuildContext _context;
-
   bool gameOver = false;
 
-  bool _isInit = false;
+  late BuildContext context;
 
   /// Creates a new game.
   Game() {
     _gameLoop = GameLoop(update);
     _gameLoop.start();
     _size = MediaQueryData.fromWindow(window).size;
-  }
-
-  /// Init the game given the [context].
-  void init(BuildContext context) {
-    _context = context;
-    //_size = MediaQuery.of(context).size;
-    _isInit = true;
   }
 
   /// Updates the game entities at each frame.
@@ -106,8 +97,4 @@ abstract class Game extends ChangeNotifier implements GesturesDetector {
   GameLoop get gameLoop => _gameLoop;
 
   Size get size => _size;
-
-  BuildContext get context => _context;
-
-  bool get isInit => _isInit;
 }

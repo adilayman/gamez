@@ -1,4 +1,4 @@
-[<img src="assets/logo.png" width="100" />](https://pub.dev/packages/gamez)
+# gamEZ
 
 <p align="left">
 A small game engine for 2D games in Flutter.
@@ -12,9 +12,9 @@ A small game engine for 2D games in Flutter.
   </a>
 </p>
 
-### Usage
+## Usage
 
-#### Create the game model
+### Create the game model
 
 The game model is responsible for the logical part of the game, such as adding/removing entities and managing gestures.
 
@@ -61,7 +61,7 @@ The available gestures are:
 * TapDetector
 * GesturesDetector: for detecting all possible gestures.
 
-#### Create the game widget
+### Create the game widget
 
 A model without a widget is not enough to display your game. For that, you have to create a widget that extends from `GameWidget` and add your model to it. MAGIC!
 
@@ -73,7 +73,7 @@ class MyGameWidget extends GameWidget {
 
 You can also add another widget to your game widget by calling `MyGame::addChild(MyWidget)`
 
-### Possible future improvements
+## Possible future improvements
 
 For *completion*, some planned features:
 

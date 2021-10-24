@@ -8,7 +8,7 @@ A small game engine for 2D games in Flutter.
   <a title="pub" href="https://pub.dev/packages/gamez" ><img src="https://img.shields.io/badge/pub.dev-0.0.3-blue?style=plastic" />
   <a title="license" href="https://github.com/adilayman/gamez/blob/main/LICENSE" ><img src="https://img.shields.io/github/license/adilayman/gamez?style=plastic" /></a>
   </a>
-  <a title="pawns game" href="https://github.com/adilayman/pawns_game" ><img src="https://img.shields.io/badge/pawns%20game-example-purple?style=plastic" /></a>
+  <a title="pawns game" href="https://github.com/adilayman/pawns_game" ><img src="https://img.shields.io/badge/example-pawns%20game-purple?style=plastic" /></a>
   </a>
 </p>
 

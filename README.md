@@ -1,22 +1,18 @@
 # gamEZ
 
-<p align="left">
 A small game engine for 2D games in Flutter.
-</p>
 
-<p align="left">
-  <a title="pub" href="https://pub.dev/packages/gamez" ><img src="https://img.shields.io/badge/pub.dev-0.0.3-blue?style=plastic" />
-  <a title="license" href="https://github.com/adilayman/gamez/blob/main/LICENSE" ><img src="https://img.shields.io/github/license/adilayman/gamez?style=plastic" /></a>
-  </a>
-  <a title="pawns game" href="https://github.com/adilayman/pawns_game" ><img src="https://img.shields.io/badge/example-pawns%20game-purple?style=plastic" /></a>
-  </a>
-</p>
+[![Pub release](https://img.shields.io/badge/pub.dev-0.0.3-blue?style=flat-square)](https://pub.dev/packages/gamez) [![GitHub top language](https://img.shields.io/github/languages/top/adilayman/gamez.svg?style=flat-square)](https://github.com/adilayman/gamez) [![GitHub issues](https://img.shields.io/github/issues/adilayman/gamez?style=flat-square)](https://github.com/adilayman/gamez/issues) [![Pawns Game](https://img.shields.io/badge/Pawns%20game-Flutter-orange?style=flat-square)](https://github.com/Solido/awesome-flutter) [![License](https://img.shields.io/github/license/adilayman/gamez?style=flat-square)](https://github.com/adilayman/gamez/blob/main/LICENSE)
 
-## Usage
+## Installation
 
-### Create the game model
+```yaml
+gamez: ^0.0.3
+```
 
-The game model is responsible for the logical part of the game, such as adding/removing entities and managing gestures.
+## Game creation
+
+First, we have to create a **game model** which is responsible for the logical part of the game, such as adding/removing entities and managing gestures.
 
 ```dart
 class MyGame extends Game {
@@ -24,7 +20,7 @@ class MyGame extends Game {
 }
 ```
 
-To create a new character to your game, you have to extends it from `GameEntity`
+Then, we can create a new character to our game by extending `GameEntity`
 
 ```dart
 class MyCharacter extends GameEntity {
@@ -33,9 +29,14 @@ class MyCharacter extends GameEntity {
 }
 ```
 
-To add it to your game, you have to call `MyGame::entities.add(MyCharacter)`
+This new entity, can be added to the game using `MyGame::entities.add(MyCharacter)`
 
-By default, a game entity comes without a gesture detector. If you want to add a gesture, you have to implement the corresponding interface.
+
+By default, a game entity comes without a gesture detector. In order to detect a gesture for it, we can implement one or several interfaces of gesture detection:
+
+* `LongPressDetector`
+* `TapDetector`
+* `GesturesDetector`: for detecting all possible gestures.
 
 ```dart
 class MyCharacter extends GameEntity implements TapDetector {
@@ -55,14 +56,6 @@ class MyCharacter extends GameEntity implements TapDetector {
 }
 ```
 
-The available gestures are:
-
-* LongPressDetector
-* TapDetector
-* GesturesDetector: for detecting all possible gestures.
-
-### Create the game widget
-
 A model without a widget is not enough to display your game. For that, you have to create a widget that extends from `GameWidget` and add your model to it. MAGIC!
 
 ```dart
@@ -73,11 +66,13 @@ class MyGameWidget extends GameWidget {
 
 You can also add another widget to your game widget by calling `MyGame::addChild(MyWidget)`
 
-## Possible future improvements
+## Features
 
-For *completion*, some planned features:
+- [x] Some basic components
+- [x] Image renderer
+- [ ] Audio support
+- [ ] Animations support
+- [ ] Tests
 
-* More basic components.
-* Audio support.
-
+## Contributions
 All contributions are warmly welcomed.

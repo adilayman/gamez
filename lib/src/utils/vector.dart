@@ -12,7 +12,7 @@ class Vector {
   /// Division operator.
   Vector operator /(double denum) => Vector(x / denum, y / denum);
 
-  /// Substraction operator.
+  /// Subtraction operator.
   Vector operator -(Vector other) => Vector(x - other.x, y - other.y);
 
   /// Multiplication operator.

@@ -1,9 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:gamez/src/game_entities/game_entity.dart';
 import 'package:gamez/src/gestures/gestures.dart';
 
 import 'game_loop.dart';
-import 'dart:ui';
 
 /// Abstract representation of a game.
 abstract class Game extends ChangeNotifier implements GesturesDetector {

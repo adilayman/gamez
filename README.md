@@ -7,7 +7,7 @@ A small game engine for 2D games in Flutter.
 ## Installation
 
 ```yaml
-gamez: ^0.0.3
+gamez: ^0.0.3+1
 ```
 
 ## Game creation

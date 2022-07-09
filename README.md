@@ -47,7 +47,7 @@ Gesture.longPressEnd
 
 ### View creation
 
-A model without a widget is not enough to display your game. For that, you have to create a widget that extends from `GameWidget`, then add your model to it.
+Second, we have to create a widget that extends from `GameWidget`, then add your model to it.
 
 ```dart
 class MyGameWidget extends GameWidget {

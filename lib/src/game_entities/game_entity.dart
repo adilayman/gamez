@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gamez/src/utils/image_renderer.dart';
-import 'package:gamez/src/utils/vector.dart';
+import 'package:gamez/gamez.dart';
 
 /// Abstract representation of a render element.
 abstract class GameEntity {
@@ -20,6 +19,8 @@ abstract class GameEntity {
 
   /// Updates the game entity at each frame.
   void update(double dt);
+
+  void handleGesture(Offset position, Gesture gesture);
 
   /// Resets the state.
   void reset();

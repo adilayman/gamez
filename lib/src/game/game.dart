@@ -1,13 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gamez/src/game_entities/game_entity.dart';
-import 'package:gamez/src/gestures/gestures.dart';
-
-import 'game_loop.dart';
+import 'package:gamez/gamez.dart';
 
 /// Abstract representation of a game.
-abstract class Game extends ChangeNotifier implements GesturesDetector {
+abstract class Game extends ChangeNotifier {
   Size _size = Size.zero;
 
   late GameLoop _gameLoop;
@@ -42,58 +39,15 @@ abstract class Game extends ChangeNotifier implements GesturesDetector {
   /// Adds a new entity.
   void addEntity(GameEntity entity) => entities.add(entity);
 
+  /// Handles a given gesture.
+  void handleGesture(Offset position, Gesture gesture) {
+    for (GameEntity entity in entities) {
+      entity.handleGesture(position, gesture);
+    }
+  }
+
   /// Resets the game state.
   void reset() {}
-
-  @override
-  void onLongPressMoveUpdate(Offset position) {
-    for (var entity in entities) {
-      if (entity is LongPressDetector) {
-        var gestureEntity = entity as LongPressDetector;
-        gestureEntity.onLongPressMoveUpdate(position);
-      }
-    }
-  }
-
-  @override
-  void onLongPressStart(Offset position) {
-    for (GameEntity entity in entities) {
-      if (entity is LongPressDetector) {
-        var gestureEntity = entity as LongPressDetector;
-        gestureEntity.onLongPressStart(position);
-      }
-    }
-  }
-
-  @override
-  void onLongPressEnd(Offset position) {
-    for (GameEntity entity in entities) {
-      if (entity is LongPressDetector) {
-        var gestureEntity = entity as LongPressDetector;
-        gestureEntity.onLongPressEnd(position);
-      }
-    }
-  }
-
-  @override
-  void onDoubleTapDown(Offset position) {
-    for (GameEntity entity in entities) {
-      if (entity is TapDetector) {
-        var gestureEntity = entity as TapDetector;
-        gestureEntity.onDoubleTapDown(position);
-      }
-    }
-  }
-
-  @override
-  void onTapDown(Offset position) {
-    for (GameEntity entity in entities) {
-      if (entity is TapDetector) {
-        var gestureEntity = entity as TapDetector;
-        gestureEntity.onTapDown(position);
-      }
-    }
-  }
 
   GameLoop get gameLoop => _gameLoop;
 

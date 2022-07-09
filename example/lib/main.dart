@@ -15,13 +15,13 @@ void main() => runApp(
       ),
     );
 
-class MyCharacter extends CircularEntity implements TapDetector {
+class MyCharacter extends CircularEntity {
   final color1 = Colors.red;
   final color2 = Colors.green;
 
   MyCharacter(Vector position) : super(position, 50) {
     color = color1;
-    velocity.x = 75;
+    velocity.x = 150;
   }
 
   @override
@@ -30,13 +30,11 @@ class MyCharacter extends CircularEntity implements TapDetector {
   }
 
   @override
-  void onTapDown(Offset position) {
-    if (!contains(position)) return;
-    color = color == color1 ? color2 : color1;
+  void handleGesture(Offset position, Gesture gesture) {
+    if (gesture == Gesture.tapDown && contains(position)) {
+      color = color == color1 ? color2 : color1;
+    }
   }
-
-  @override
-  void onDoubleTapDown(Offset position) {}
 
   @override
   void reset() {}

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.3+1
+
+- better handling of gestures
+- delete out-of-scope classes/functions
+
 ## 0.0.3
 
 - flexible gesture detection

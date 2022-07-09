@@ -12,7 +12,7 @@ gamez: ^0.0.3
 
 ## Game creation
 
-The purpose of this engine is to separate the logical and view parts to give you the freedom to customize them as you wish.
+The purpose of this engine is to separate the logical and view/widget parts to give you the freedom to customize them as you wish.
 
 ### Model creation
 

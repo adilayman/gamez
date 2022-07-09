@@ -1,14 +1,10 @@
 library gamez;
 
-export 'src/game/game_loop.dart';
-export 'src/game/game_system.dart';
-export 'src/game/game_widget.dart' show GameWidget;
-export 'src/game/game.dart';
-
-export 'src/game_entities/circular_entity.dart';
-export 'src/game_entities/circular_progress_bar.dart';
-export 'src/game_entities/game_entity.dart';
-
-export 'src/gestures/gestures.dart';
-export 'src/utils/image_renderer.dart';
-export 'src/utils/vector.dart';
+export 'src/providers/game.dart';
+export 'src/models/game_loop.dart';
+export 'src/widgets/game_widget.dart' show GameWidget;
+export 'src/models/circular_entity.dart';
+export 'src/models/game_entity.dart';
+export 'src/models/gestures.dart';
+export 'src/services/image_renderer.dart';
+export 'src/models/vector.dart';

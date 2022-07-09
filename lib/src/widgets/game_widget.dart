@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:gamez/gamez.dart';
 import 'package:provider/provider.dart';
-
-import 'game.dart';
 
 // ignore: must_be_immutable
 abstract class GameWidget extends StatelessWidget {
@@ -23,15 +21,16 @@ abstract class GameWidget extends StatelessWidget {
         builder: (context, game, _) {
           return Scaffold(
             body: GestureDetector(
+              onTapDown: (details) =>
+                  game.handleGesture(details.globalPosition, Gesture.tapDown),
               onDoubleTapDown: (details) =>
-                  game.onDoubleTapDown(details.globalPosition),
-              onLongPressMoveUpdate: (details) =>
-                  game.onLongPressMoveUpdate(details.globalPosition),
-              onLongPressStart: (details) =>
-                  game.onLongPressStart(details.globalPosition),
-              onLongPressEnd: (details) =>
-                  game.onLongPressEnd(details.globalPosition),
-              onTapDown: (details) => game.onTapDown(details.globalPosition),
+                  game.handleGesture(details.globalPosition, Gesture.tapDown),
+              onLongPressMoveUpdate: (details) => game.handleGesture(
+                  details.globalPosition, Gesture.longPressMoveUpdate),
+              onLongPressStart: (details) => game.handleGesture(
+                  details.globalPosition, Gesture.longPressStart),
+              onLongPressEnd: (details) => game.handleGesture(
+                  details.globalPosition, Gesture.longPressEnd),
               child: Stack(
                 children: [
                   CustomPaint(
